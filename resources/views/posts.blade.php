@@ -8,7 +8,7 @@
       <a href="/posts/{{ $post['slug'] }}">
       <h2 class="mb-1 text-3xl tracking-tight font-bold text-gray-900 hover:underline">{{ $post['title'] }}</h2></a>
       <div class="text-base text-gray-500">
-        <a href="/authors/{{ $post->author->id }}" class="hover:underline">{{ $post->author->name }}</a> | 14 May 2025
+        <a href="/authors/{{ $post->author->username }}" class="hover:underline">{{ $post->author->name }}</a> | 14 May 2025
       </div>
       {{-- Menggunakan helper string limit 10 karakter--}}
       <p class="my-4 font-light">{{ Str::limit($post['body']),10 }}</p>
