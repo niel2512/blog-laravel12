@@ -6,7 +6,7 @@
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
  <title>{{ $title }}</title>
  @vite('resources/css/app.css')
- <link rel="icon" type="image/ico" href="{{ asset('favicon.ico') }}"/>
+ <link rel="icon" href="{{ asset('favicon.png') }}"/>
  {{-- Link Tailwind css --}}
  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
  {{-- Link Alpine.js --}}
