@@ -3,5 +3,5 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-//melakukan eloquent dengan inheritence dari Model menggunakan extends
+//menggunakan model binding 
 class Post extends Model {}

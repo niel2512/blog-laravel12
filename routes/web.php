@@ -12,9 +12,9 @@ Route::get('/posts', function () {
     return view('posts', ['title' => 'Blog', 'posts' => $posts]);
 });
 
-Route::get('/posts/{id}', function ($id){
-    $p = Post::find($id);
-    return view('post', ['title' => 'Single Post', 'p' => $p]);
+// Route model binding {namamodel:slug} custom model binding untuk mencari berdasarkan slug
+Route::get('/posts/{post:slug}', function (Post $post){
+    return view('post', ['title' => 'Single Post', 'post' => $post]);
 });
 
 Route::get('/about', function () {
