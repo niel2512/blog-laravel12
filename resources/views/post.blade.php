@@ -7,4 +7,5 @@
       <p class="my-4 font-light">{{ $post['body']}}</p>
       <a href="/posts" class="font-medium text-blue-500 hover:underline">&laquo; Back to all posts.</a>
     </article>
+    
   </x-layout>
