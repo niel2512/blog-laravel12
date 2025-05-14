@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 //menggunakan model binding 
 class Post extends Model 
 {
- protected $fillable = ['title','author','slug','body']; //ini untuk memperbolehkan table tersebut diisi 
  // protected $guarded = ['id']; //ini untuk menjaga agar id tidak dapat diisi
+ // protected $table = 'Post'; //ini digunakan kalau table kita tidak menggunakan default table laravel 'Posts' ada s nya
+ use HasFactory; //agar bisa memanggil faker di tinker
+ protected $fillable = ['title','author','slug','body']; //ini untuk memperbolehkan table tersebut diisi 
 }
