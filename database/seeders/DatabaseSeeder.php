@@ -15,7 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call([CategorySeeder::class, UserSeeder::class, PostSeeder::class]);
+        // Method call untuk memanggil kelas seeder tambahan
+        $this->call([
+            CategorySeeder::class, 
+            UserSeeder::class, 
+            PostSeeder::class
+        ]);
 
         // Post::factory(30)->recycle([
             // Category::factory(3)->create(),
