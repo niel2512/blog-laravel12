@@ -16,10 +16,10 @@ class PostSeeder extends Seeder
     public function run(): void
     {
         Post::factory(30)->recycle([
-            // Category::factory(3)->create(),
-            Category::all(),
+            // Category::factory(3)->create(), //ini kode yang diambil dari factory category
+            Category::all(),                   //ini kode yang diambil dari category seeder
             // User::factory(5)->create()
-            User::all()
+            User::all()                        //ini kode yang diambil dari user seeder
         ])->create();
     }
 }
