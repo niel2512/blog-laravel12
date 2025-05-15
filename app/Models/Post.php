@@ -32,8 +32,8 @@ class Post extends Model
  #[Scope]
  protected function filter(Builder $query, array $filters): void
  {
-  // logika untuk searchable
-  if($filters('search')){
+  // logika untuk searchable dengan ternary operator
+  if($filters['search'] ? $filters['search'] : false){
         $query->where('title', 'like', '%' . request('search').'%');
     }
  }
