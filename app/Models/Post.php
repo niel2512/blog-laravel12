@@ -39,10 +39,16 @@ class Post extends Model
     $query->when($filters['search'] ?? false, function ($query, $search){
           return $query->where('title', 'like', '%' . request('search').'%');
     });
+    
     // ini untuk mencari category 
     $query->when($filters['category'] ?? false, function ($query, $category) {
      // Melakukan return dengan arrow function
           return $query->whereHas('category', fn(Builder $query) => $query->where('slug', $category));
+    });
+
+    // ini untuk mencari category 
+    $query->when($filters['author'] ?? false, function ($query, $author) {
+          return $query->whereHas('author', fn(Builder $query) => $query->where('username', $author));
     });
  }
 }
