@@ -16,7 +16,7 @@ Route::get('/posts', function () {
 
 // Route model binding {namamodel:slug} custom model binding untuk mencari berdasarkan slug
 Route::get('/posts/{post:slug}', function (Post $post){
-    return view('post', ['title' => 'Single Post', 'post' => $post]);
+    return view('post', ['title' => 'Blog Details', 'post' => $post]);
 });
 
 // Route model binding {namamodel:username} 
