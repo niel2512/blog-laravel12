@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Scope;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -24,5 +26,15 @@ class Post extends Model
  public function category(): BelongsTo
  {
   return $this->belongsTo(Category::class);
+ }
+
+ // Menambah query scope untuk filter search
+ #[Scope]
+ protected function filter(Builder $query, array $filters): void
+ {
+  // logika untuk searchable
+  if($filters('search')){
+        $query->where('title', 'like', '%' . request('search').'%');
+    }
  }
 }

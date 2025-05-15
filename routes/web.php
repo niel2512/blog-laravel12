@@ -10,12 +10,9 @@ Route::get('/', function () {
 });
 Route::get('/posts', function () {
     // membuat variabel posts yang berisi array bersarang
-    $posts = Post::latest();
-    // logika untuk searchable
-    if(request('search')){
-        $posts->where('title', 'like', '%' . request('search').'%');
-    }
-    return view('posts', ['title' => 'Blog', 'posts' => $posts->get()]);
+    $posts = Post::latest()->get();
+    
+    return view('posts', ['title' => 'Blog', 'posts' => $posts]);
 });
 
 // Route model binding {namamodel:slug} custom model binding untuk mencari berdasarkan slug
