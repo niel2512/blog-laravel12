@@ -14,6 +14,9 @@ class Post extends Model
  use HasFactory; //agar bisa memanggil faker di tinker
  protected $fillable = ['title','author','slug','body']; //ini untuk memperbolehkan table tersebut diisi 
 
+ // Melakukan eloquent Eager Loading by Default
+ protected $with = ['author','category']; //pakai eager query apabila query nya kebanyakan
+
  public function author(): BelongsTo
  {
   return $this->belongsTo(User::class);
