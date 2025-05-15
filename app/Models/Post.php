@@ -32,9 +32,17 @@ class Post extends Model
  #[Scope]
  protected function filter(Builder $query, array $filters): void
  {
-  // logika untuk searchable dengan ternary operator
-  if($filters['search'] ? $filters['search'] : false){
-        $query->where('title', 'like', '%' . request('search').'%');
-    }
+    // logika untuk searchable dengan null coalescing operator
+    // menggunakan method when yang ada di collection
+
+    // ini when untuk mencari search (blog)
+    $query->when($filters['search'] ?? false, function ($query, $search){
+          return $query->where('title', 'like', '%' . request('search').'%');
+    });
+    // ini untuk mencari category 
+    $query->when($filters['category'] ?? false, function ($query, $category) {
+     // Melakukan return dengan arrow function
+          return $query->whereHas('category', fn(Builder $query) => $query->where('slug', $category));
+    });
  }
 }

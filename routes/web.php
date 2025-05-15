@@ -9,8 +9,7 @@ Route::get('/', function () {
     return view('home', ['title' => 'Home']);
 });
 Route::get('/posts', function () {
-    // membuat variabel posts yang berisi array bersarang
-    $posts = Post::latest()->filter()->get();
+    $posts = Post::latest()->filter(request(['search','category']))->get();
     return view('posts', ['title' => 'Blog', 'posts' => $posts]);
 });
 
