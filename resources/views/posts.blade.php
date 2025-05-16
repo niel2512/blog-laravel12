@@ -57,7 +57,7 @@
         <div class="flex justify-center items-center min-w-screen">
           <div class="w-full max-w-xs bg-slate-300 rounded-lg p-6 text-center">
             <p class="font-semibold text-xl my-4">Article Not Found!</p>
-            <a href="/posts" class="text-blue-500 hover:underline">&laquo; Back to all blog</a>
+            <a href="/posts" class="block text-blue-500 hover:underline">&laquo; Back to all blog</a>
           </div>
         </div>
         @endforelse             
