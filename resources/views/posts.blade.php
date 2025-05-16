@@ -54,8 +54,8 @@
         </article>
         {{-- menambah empty agar menampilkan isi jika tidak terdapat blog yang dicari --}}
         @empty
-        <div class="flex justify-center items-center min-w-screen">
-          <div class="w-full max-w-xs bg-slate-300 rounded-lg p-6 text-center">
+        <div class="flex items-center justify-center min-w-screen max-w-screen">
+          <div class="w-full p-10 mr-24 m-auto  text-center ">
             <p class="font-semibold text-xl my-4">Article Not Found!</p>
             <a href="/posts" class="block text-blue-500 hover:underline">&laquo; Back to all blog</a>
           </div>
