@@ -24,7 +24,7 @@
           </div>
       </form>
       {{ $posts->links() }}
-      <div class="mb-4 mt-4 grid gap-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+      <div class="mb-4 mt-4 grid gap-8 lg:grid-cols-3 sm:grid-cols-1">
         @forelse ($posts as $post)
         <article class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
           <div class="flex justify-between items-center mb-5 text-gray-500">
@@ -54,10 +54,22 @@
         </article>
         {{-- menambah empty agar menampilkan isi jika tidak terdapat blog yang dicari --}}
         @empty
-        <div class="flex items-center justify-center min-w-screen max-w-screen">
-          <div class="w-full p-10 mr-24 m-auto  text-center ">
-            <p class="font-semibold text-xl my-4">Article Not Found!</p>
-            <a href="/posts" class="block text-blue-500 hover:underline">&laquo; Back to all blog</a>
+        {{-- kekurangan nya harus membuat 2 div karena masi didalam looping pada class ini lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 --}}
+
+        {{-- ini div 1 --}}
+        <div class="flex items-center justify-center m-auto p-auto border">
+        </div>
+
+        {{-- ini div 2 --}}
+        <div class="flex items-center justify-center m-auto p-auto">
+          <div class="w-full p-10 mx-auto text-center ">
+            <p class="font-semibold text-xl">Oops...Article Not Found!</p>
+            <p class="font-light mb-2">Click button bellow to return</p>
+            <a href="/posts" class="block text-white">
+              <div class="px-4 py-2 bg-blue-700 border border-transparent rounded-md inline-flex items-center hover:bg-blue-800 transition ease-in-out duration-150">
+              Back to all blog
+              </div>
+            </a>
           </div>
         </div>
         @endforelse             
